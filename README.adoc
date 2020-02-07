@@ -1,1 +1,2 @@
 = Asciibook Docs
+:source-highlighter: rouge

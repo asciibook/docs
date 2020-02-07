@@ -1,0 +1,64 @@
+== Introduction
+
+Asciibook is an Ebook generator for converting AsciiDoc to HTML, PDF, EPUB and MOBI.
+
+=== About AsciiDoc
+
+AsciiDoc is a lightweight markup language for writing document, articles, books.
+
+Compare with other lightweight markup language, for example -- markdown, Asciidoc provides more powerful markup semantics such as tables, footnotes, cross-references. Richer built-in semantics can reduce the differences between different programs when working with documents.
+
+Here is a AsciiDoc example:
+
+[source, aciidoc]
+----
+= Hello, AsciiDoc!
+Doc Writer <doc@example.com>
+
+An introduction to http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"
+----
+
+Read https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/ for more AsciiDoc syntax.
+
+=== Difference between Asciibook and Asciidoctor
+
+Asciidoctor is a toolchain for converting AsciiDoc content to many formats. Asciibook focuses on several formats related to books: HTML, PDF, EPUB and MOBI.
+
+Asciibook relies on Asciidoctor to parse asciidoc documents, but uses its own converter. In a sense, asciibook is an asciidoctor coverter with its own preferences.
+
+For example, Asciibook uses wkhtmltopdf to generate pdfs from html, and Asciidoctor directly generates pdfs. Asciibook's processing makes the resulting PDF style almost the same as other formats.
+
+Asciibook also provides a consistent way to style ebooks.
+
+=== E-book Formats
+
+Asciibook supports major e-book formats:
+
+HTML:: Can be deployed as a static website.
+PDF:: Can be read by most devices.
+EPUB:: Can be read by most E-book reader, like Google Boook, iBook.
+MOBI:: Can be read by Kindle.
+
+=== Version Control
+
+Because asciidoc is plain text, it can be well managed by version management tools.
+
+You can store documents via GitHub, collaborate with pull-request, and publish via Github Pages.
+
+=== CI/CD
+
+Asciibook works on the command line, so it can be used with existing CI / CD services such as GitHub Actions, GitLab CI, and more.
+
+Read <<Automation>> section for more infomation.
+
+=== Open Source
+
+Asciibook is release under MIT License.
