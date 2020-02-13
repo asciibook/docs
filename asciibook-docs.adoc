@@ -8,17 +8,9 @@ Welcome to the Asciibook Document. On this document you will learn how to use As
 
 include::sections/introduction.adoc[]
 
-== Installation
+include::sections/installation.adoc[]
 
-=== Manual Installation
-
-=== Docker Installation
-
-== Build
-
-=== Command Line Usage
-
-=== Configuration
+include::sections/build.adoc[]
 
 == Theme
 

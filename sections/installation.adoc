@@ -1,0 +1,45 @@
+== Installation
+
+Asciibook uses docker as a distribution tool. Docker can package dependencies, keep workspace clean, and easy to integrate with CI/CD.
+
+If you don't have docker installed, go to https://www.docker.com/products/docker-desktop download and install docker.
+
+=== Docker Image
+
+Use this command to pull Asciibook image:
+
+[source, console]
+----
+$ docker pull asciibook/asciibook
+----
+
+By default, docker pull the latest image. You can also specify the mirror version by tag:
+
+[source, console]
+----
+$ docker pull asciibook/asciibook:0.0.2
+----
+
+Visit https://hub.docker.com/r/asciibook/asciibook for more infomation about available versions.
+
+=== Container Environment
+
+Use this command to enter container environment in your workspace directory:
+
+[source, console]
+----
+~ $ cd workspace
+workspace $ docker run -it -v $(pwd):/asciibook asciibook/asciibook bash
+----
+
+It will start bash shell in container enviroment, and the `/asciibook` directory in container will sync with `workspace` directory in host. Next we will execute the Asciibook command inside the container environment.
+
+Check the current Asciibook version:
+
+[source, console]
+----
+$ asciibook --version
+asciibook 0.0.2
+----
+
+If you see version information, then Asciibook is installed.
