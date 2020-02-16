@@ -1,0 +1,158 @@
+== Style
+
+Asciibook provides two levels of ways to customize ebook styles:
+
+Theme:: Define the layout and style of the book by HTML/CSS/JavaScript.
+
+Template:: Defines how AsciiDoc elements are converted to HTML.
+
+Asciibook has built-in themes and templates. If you need to modify the themes and templates, copying the built-in themes and templates is a good start.
+
+[NOTE]
+====
+You can download theme and template dir from Asciibook GitHub Repo: https://github.com/asciibook/asciibook .
+
+Asciibook will add command to export built-in theme and template in the future.
+====
+
+=== Theme
+
+Use `--theme-dir DIR` or `theme_dir: DIR` to specify theme dir. When specify theme dir, it will overwrite the built-in theme, so it should have completed theme structure.
+
+The directory structure of theme is as follows (only show required files):
+
+[source]
+----
+theme/
+├── epub
+│   └── layout.html
+├── html
+│   └── layout.html
+├── mobi
+│   └── layout.html
+├── pdf
+│   ├── config.yml
+│   ├── footer.html
+│   ├── header.html
+│   ├── layout.html
+│   └── toc.xsl
+└── share
+----
+
+Each format has its own directory and `layout.html` file, and a `share` directory.
+
+`layout.html` content looks like this:
+
+[source, html]
+----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ book.title }}</title>
+  </head>
+  <body>
+    {{ page.content }}
+  </body>
+</html>
+----
+
+You can add elements, and add CSS/JavaScript link in `layout.html`, for exmaple, add this lines in `layout.html` file's `<head>`:
+
+[source, html]
+----
+<link rel="stylesheet" href="style.css">
+----
+
+And puts assets in format's directory:
+
+[source]
+----
+theme/
+├── html
+    ├── style.css
+    └── layout.html
+----
+
+Assets will by copy to destination directory in build time.
+
+You can also put assets in `share` directory, then it can be link by all formats.
+
+[source]
+----
+theme/
+└── share
+    └── default.css
+----
+
+==== PDF Specific Content
+
+PDF is complex than other formats:
+
+[source]
+----
+├── pdf
+│   ├── config.yml
+│   ├── footer.html
+│   ├── header.html
+│   ├── layout.html
+│   └── toc.xsl
+----
+
+This is because of PDF has more processing steps: calculate page numbers, generate headers and footers, and generate table of contents with page numbers. They are not in the same process as rendering the page.
+
+The role of these files is as follows:
+
+config.yml:: Define PDF page margin.
+header.html:: Page header content, page number, page title, etc.
+footer.html:: Page footer content, like header.
+toc.xsl:: Table of contents template for `wkhtmltopdf`, which actually print PDFs.
+
+It is recommended to copy the built-in template for modification.
+
+[NOTE]
+====
+To use PDF TOC, you need to add a special sections:
+
+----
+[toc]
+== Table of Contents
+----
+
+It will be replaced by real TOC in build time.
+====
+
+==== EPUB/MOBI Specific Content
+
+According to EPUB specification, EPUB content should be store as XHTML, so `layout.html` should use XHTML markup. Compare to HTML, XHTML has stricter formatting requirements, such as closing tags, namespace declarations.
+
+MOBI is convert from EPUB, it follows the same requirements, but can have own layout and style.
+
+=== Template
+
+Use `--template-dir DIR` or `template_dir: DIR` to specify template dir. Unlike theme dir, you can provide partial templates, and unspecified templates will use the default templates.
+
+The directory structure of template is as follows:
+
+[source]
+----
+templates/
+├── admonition.html
+├── audio.html
+├── colist.html
+├── dlist.html
+├── document.html
+├── embedded.html
+...
+----
+
+Each template corresponds to an AsciiDoc element, you can find all templates in https://github.com/asciibook/asciibook/tree/master/templates .
+
+With template, you have complete control over the output of the element. For example, create a template named `paragraph.html` with this content:
+
+[source, html]
+----
+<p class="custom">{{ node.content }}</p>
+----
+
+Then all paragraph element will have a `custom` class.

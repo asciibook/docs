@@ -12,7 +12,7 @@ include::sections/installation.adoc[]
 
 include::sections/build.adoc[]
 
-== Theme
+include::sections/style.adoc[]
 
 == Automation
 
