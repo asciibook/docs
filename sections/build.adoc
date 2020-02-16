@@ -2,4 +2,105 @@
 
 === Command Line Usage
 
+Asciibook provides a `asciibook` program with several commands.
+
+==== `build`
+
+Performs a one off build your book to `./build` (by default).
+
+[source]
+----
+$ asciibook build mybook.adoc
+----
+
+To change Asciibook’s default build behavior have a look through the <<Configuration>>.
+
+==== `init`
+
+Create a config file `asciibook.yml` for exist AsciiDoc file.
+
+[source]
+----
+$ asciibook init mybook.adoc
+----
+
+If current directory have config file, you can run build command this way:
+
+[source]
+----
+$ asciibook build
+----
+
+It will read source file and configuration in `asciibook.yml`.
+
+==== `new`
+
+Create a new Asciibook scaffold.
+
+[source]
+----
+$ asciibook new mybook
+----
+
+==== `help`
+
+Show help for Asciibook.
+
+[source]
+----
+$ asciibook help
+----
+
 === Configuration
+
+The build configuration can be specified in a command or written to configuration file `asciibook.yml`.
+
+|===
+| Setting | Command Line | Config file
+
+a|
+**Build Source **
+
+Build source document.
+a| `build SOURCE`
+a| `source: SOURCE`
+
+a|
+**Formats**
+
+What format needs to be generated.
+a| `--formats html,pdf...`
+a| `formats: [html, pdf...]`
+
+a|
+**Destination Dir**
+
+Change the directory of the build output.
+a| `--dest-dir DIR`
+a| `dest_dir: DIR`
+
+a|
+**Theme Dir**
+
+The directory where the theme is stored.
+a| `--theme-dir DIR`
+a| `theme_dir: DIR`
+
+a|
+**Template Dir**
+
+The directory where the template is stored.
+a| `--template-dir DIR`
+a| `template_dir: DIR`
+
+a|
+**Page Level**
+
+What level of chapters are on a separate page.
+
+0 means the entire document is one page, default is 1.
+a| `--page-level NUM`
+a| `page_level: NUM`
+
+
+|===
