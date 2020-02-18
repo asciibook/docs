@@ -12,7 +12,7 @@ Create file `.github/workflows/asciibook.yml` in your repo with this content:
 
 [source, yaml]
 ----
-name: Build and Publish
+name: Asciibook
 
 on: [push, pull_request]
 
