@@ -14,8 +14,4 @@ include::sections/build.adoc[]
 
 include::sections/style.adoc[]
 
-== Automation
-
-=== GitHub Actions
-
-== Editor
+include::sections/automation.adoc[]

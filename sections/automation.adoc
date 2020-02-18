@@ -1,0 +1,76 @@
+== Automation
+
+The best way to use Asciibook is used on CI/CD system. Any CI/CD service that supports docker can use Asciibook.
+
+This chapter shows how to configure different CI/CD systems.
+
+=== GitHub Actions
+
+GitHub Actions is the official CI/CD service on GitHub. It's free for open source project and charge by running time for private project.
+
+Create file `.github/workflows/asciibook.yml` in your repo with this content:
+
+[source, yaml]
+----
+name: Build and Publish
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    container:
+      image: asciibook/asciibook
+    steps:
+      - uses: actions/checkout@v2
+      - name: build book
+        run: |
+          asciibook build mybook.adoc
+      - uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
+----
+
+It means when push or pull request on this repo, create a job to run `asciibook build mybook.adoc`, and upload the `build` directory to workflow artifact, then you can download the build tarball from workflow status page.
+
+If you want to pubilsh HTML result to GitHub pages, add the following content under `jobs`:
+
+[source, yaml]
+----
+  publish:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: build
+      - name: Publish to Github Pages
+        run: |
+          cd build/html
+          touch .nojekyll
+          git init
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add .
+          git commit -m 'asciibook build'
+          git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
+          rm -fr .git
+          cd ../..
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+----
+
+It means when push to master branch, create a job to push HTML result to `gh-pages` branch.
+
+GitHub pages needs to be triggered manually in first time, go to settings page of project, select source from gh-pages branch, and select a theme to trigger publish.
+
+image::images/github-pages.png[GitHub Pages]
+
+Then push something to master branch to trigger GitHub Actions build, your pages will be publish later.
+
+[NOTE]
+====
+This book is a live sample for GitHub Actions with Asciibook, checkout source code for details: https://github.com/asciibook/docs .
+====
