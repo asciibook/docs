@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     container:
-      image: asciibook/asciibook
+      image: asciibook/asciibook:0.0.3
     steps:
       - uses: actions/checkout@v2
       - name: build book
