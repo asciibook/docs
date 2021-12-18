@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Build - Asciibook Document</title>
+    <link rel="icon" href="icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    
+
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="default.css" />
+    <link rel="stylesheet" href="highlight.css" />
+    <link rel="stylesheet" href="html.css" />
+    <script src="html.js"></script>
+  </head>
+  <body class="preload">
+    <div id="drawer" class="drawer">
+      <div class="drawer-content">
+        <div class="drawer-menu">
+          
+            <ol>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_table_of_contents.html">Table of Contents</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_introduction.html">Introduction</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_installation.html">Installation</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item  active " href="_build.html">Build</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_source_highlight.html">Source Highlight</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_equations_and_formulas_stem.html">Equations and Formulas (STEM)</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_style.html">Style</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_automation.html">Automation</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_plugin.html">Plugin</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_build_docker_image.html">Build Docker Image</a>
+                  
+                </li>
+              
+            </ol>
+          
+        </div>
+      </div>
+      <div class="drawer-backdrop">
+      </div>
+    </div>
+    <div class="main">
+      <div class="toolbar">
+        <div class="toolbar-action">
+          <button id="drawer-toggle" type="button" class="button button-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z"/></svg>
+          </button>
+        </div>
+        <div class="toolbar-title">
+          <a href="index.html">
+            Asciibook Document
+          </a>
+        </div>
+
+        <div class="toolbar-action">
+          <div class="dropdown">
+            <button type="button" class="button button-icon dropdown-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 5.5c0 .83.67 1.5 1.5 1.5H14v10.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V7h3.5c.83 0 1.5-.67 1.5-1.5S21.33 4 20.5 4h-10C9.67 4 9 4.67 9 5.5zM4.5 12H6v5.5c0 .83.67 1.5 1.5 1.5S9 18.33 9 17.5V12h1.5c.83 0 1.5-.67 1.5-1.5S11.33 9 10.5 9h-6C3.67 9 3 9.67 3 10.5S3.67 12 4.5 12z"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <div class="dropdown-group">
+                <label>Font Size</label>
+                <div class="dropdown-options font-size-options">
+                  <button type="button" class="button button-icon" data-action="reduce">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+                  </button>
+                  <div id="font-size-text">
+                    100%
+                  </div>
+                  <button type="button" class="button button-icon" data-action="add">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="dropdown-group">
+                <label>Font Family</label>
+                <div class="dropdown-options font-family-options">
+                  <button type="button" class="button button-text" data-value="serif">Serif</button>
+                  <button type="button" class="button button-text" data-value="sans-serif">Sans</button>
+                </div>
+              </div>
+              <div class="dropdown-group">
+                <label>Background</label>
+                <div class="dropdown-options background-options">
+                  <button type="button" class="button button-icon active" data-value="white">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                  <button type="button" class="button button-icon" data-value="warm">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                  <button type="button" class="button button-icon" data-value="dim">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                  <button type="button" class="button button-icon" data-value="black">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar-action">
+          <div class="dropdown">
+            <button type="button" class="button button-icon dropdown-toggle" >
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"/><path d="M4 9h12c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm15 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              
+                <ol>
+                  
+                    <li>
+                      <a class="dropdown-menu-item" href="#_command_line_usage">Command Line Usage</a>
+                      
+                        <ol>
+                          
+                            <li>
+                              <a class="dropdown-menu-item" href="#_build_2"><code>build</code></a>
+                            </li>
+                          
+                            <li>
+                              <a class="dropdown-menu-item" href="#_init"><code>init</code></a>
+                            </li>
+                          
+                            <li>
+                              <a class="dropdown-menu-item" href="#_new"><code>new</code></a>
+                            </li>
+                          
+                            <li>
+                              <a class="dropdown-menu-item" href="#_help"><code>help</code></a>
+                            </li>
+                          
+                        </ol>
+                      
+                    </li>
+                  
+                    <li>
+                      <a class="dropdown-menu-item" href="#_configuration">Configuration</a>
+                      
+                    </li>
+                  
+                </ol>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content" tabindex="-1">
+        <div class="container">
+          <section class="section" id="_build">
+  <h1>Build</h1>
+  <section class="section" id="_command_line_usage">
+  <h2>Command Line Usage</h2>
+  <p >Asciibook provides a <code>asciibook</code> program with several commands.</p>
+
+<section class="section" id="_build_2">
+  <h3><code>build</code></h3>
+  <p >Performs a one off build your book to <code>./build</code> (by default).</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code>$ asciibook build mybook.adoc</code></pre>
+</figure>
+
+<p >To change Asciibook’s default build behavior have a look through the <a class="xref" href="_build.html#_configuration">Configuration</a>.</p>
+
+</section>
+
+<section class="section" id="_init">
+  <h3><code>init</code></h3>
+  <p >Create a config file <code>asciibook.yml</code> for exist AsciiDoc file.</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code>$ asciibook init mybook.adoc</code></pre>
+</figure>
+
+<p >If current directory have config file, you can run build command this way:</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code>$ asciibook build</code></pre>
+</figure>
+
+<p >It will read source file and configuration in <code>asciibook.yml</code>.</p>
+
+</section>
+
+<section class="section" id="_new">
+  <h3><code>new</code></h3>
+  <p >Create a new Asciibook scaffold.</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code>$ asciibook new mybook</code></pre>
+</figure>
+
+</section>
+
+<section class="section" id="_help">
+  <h3><code>help</code></h3>
+  <p >Show help for Asciibook.</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code>$ asciibook help</code></pre>
+</figure>
+
+</section>
+
+</section>
+
+<section class="section" id="_configuration">
+  <h2>Configuration</h2>
+  <p >The build configuration can be specified in a command or written to configuration file <code>asciibook.yml</code>.</p>
+
+<table class="table" >
+  
+  
+    <thead>
+      
+        <tr>
+          
+            <th 
+                >Setting</th>
+          
+            <th 
+                >Command Line</th>
+          
+            <th 
+                >Config file</th>
+          
+        </tr>
+      
+    </thead>
+  
+  
+    <tbody>
+      
+        <tr>
+          
+            <td 
+                >
+
+<p ><strong>Build Source </strong></p>
+
+<p >Build source document.</p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>build SOURCE</code></p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>source: SOURCE</code></p>
+
+</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td 
+                >
+
+<p ><strong>Formats</strong></p>
+
+<p >What format needs to be generated.</p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>--formats html,pdf&#8230;&#8203;</code></p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>formats: [html, pdf&#8230;&#8203;]</code></p>
+
+</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td 
+                >
+
+<p ><strong>Destination Dir</strong></p>
+
+<p >Change the directory of the build output.</p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>--dest-dir DIR</code></p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>dest_dir: DIR</code></p>
+
+</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td 
+                >
+
+<p ><strong>Theme Dir</strong></p>
+
+<p >The directory where the theme is stored.</p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>--theme-dir DIR</code></p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>theme_dir: DIR</code></p>
+
+</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td 
+                >
+
+<p ><strong>Template Dir</strong></p>
+
+<p >The directory where the template is stored.</p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>--template-dir DIR</code></p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>template_dir: DIR</code></p>
+
+</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td 
+                >
+
+<p ><strong>Page Level</strong></p>
+
+<p >What level of chapters are on a separate page.</p>
+
+<p >0 means the entire document is one page, default is 1.</p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>--page-level NUM</code></p>
+
+</td>
+          
+            <td 
+                >
+
+<p ><code>page_level: NUM</code></p>
+
+</td>
+          
+        </tr>
+      
+    </tbody>
+  
+  
+</table>
+
+</section>
+
+</section>
+
+        </div>
+      </div>
+      <div class="paginator">
+        <a href="_installation.html" class="paginator-prev ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"/></svg>
+        </a>
+        <a href="_source_highlight.html" class="paginator-next ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z"/></svg>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

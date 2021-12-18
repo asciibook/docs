@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Automation - Asciibook Document</title>
+    <link rel="icon" href="icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    
+
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="default.css" />
+    <link rel="stylesheet" href="highlight.css" />
+    <link rel="stylesheet" href="html.css" />
+    <script src="html.js"></script>
+  </head>
+  <body class="preload">
+    <div id="drawer" class="drawer">
+      <div class="drawer-content">
+        <div class="drawer-menu">
+          
+            <ol>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_table_of_contents.html">Table of Contents</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_introduction.html">Introduction</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_installation.html">Installation</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_build.html">Build</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_source_highlight.html">Source Highlight</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_equations_and_formulas_stem.html">Equations and Formulas (STEM)</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_style.html">Style</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item  active " href="_automation.html">Automation</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_plugin.html">Plugin</a>
+                  
+                </li>
+              
+                <li>
+                  <a class="drawer-menu-item " href="_build_docker_image.html">Build Docker Image</a>
+                  
+                </li>
+              
+            </ol>
+          
+        </div>
+      </div>
+      <div class="drawer-backdrop">
+      </div>
+    </div>
+    <div class="main">
+      <div class="toolbar">
+        <div class="toolbar-action">
+          <button id="drawer-toggle" type="button" class="button button-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z"/></svg>
+          </button>
+        </div>
+        <div class="toolbar-title">
+          <a href="index.html">
+            Asciibook Document
+          </a>
+        </div>
+
+        <div class="toolbar-action">
+          <div class="dropdown">
+            <button type="button" class="button button-icon dropdown-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 5.5c0 .83.67 1.5 1.5 1.5H14v10.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V7h3.5c.83 0 1.5-.67 1.5-1.5S21.33 4 20.5 4h-10C9.67 4 9 4.67 9 5.5zM4.5 12H6v5.5c0 .83.67 1.5 1.5 1.5S9 18.33 9 17.5V12h1.5c.83 0 1.5-.67 1.5-1.5S11.33 9 10.5 9h-6C3.67 9 3 9.67 3 10.5S3.67 12 4.5 12z"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <div class="dropdown-group">
+                <label>Font Size</label>
+                <div class="dropdown-options font-size-options">
+                  <button type="button" class="button button-icon" data-action="reduce">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+                  </button>
+                  <div id="font-size-text">
+                    100%
+                  </div>
+                  <button type="button" class="button button-icon" data-action="add">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="dropdown-group">
+                <label>Font Family</label>
+                <div class="dropdown-options font-family-options">
+                  <button type="button" class="button button-text" data-value="serif">Serif</button>
+                  <button type="button" class="button button-text" data-value="sans-serif">Sans</button>
+                </div>
+              </div>
+              <div class="dropdown-group">
+                <label>Background</label>
+                <div class="dropdown-options background-options">
+                  <button type="button" class="button button-icon active" data-value="white">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                  <button type="button" class="button button-icon" data-value="warm">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                  <button type="button" class="button button-icon" data-value="dim">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                  <button type="button" class="button button-icon" data-value="black">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.17L5.53 12.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.17z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar-action">
+          <div class="dropdown">
+            <button type="button" class="button button-icon dropdown-toggle" >
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"/><path d="M4 9h12c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm15 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              
+                <ol>
+                  
+                    <li>
+                      <a class="dropdown-menu-item" href="#_github_actions">GitHub Actions</a>
+                      
+                    </li>
+                  
+                </ol>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content" tabindex="-1">
+        <div class="container">
+          <section class="section" id="_automation">
+  <h1>Automation</h1>
+  <p >The best way to use Asciibook is used on CI/CD system. Any CI/CD service that supports docker can use Asciibook.</p>
+
+<p >This chapter shows how to configure different CI/CD systems.</p>
+
+<section class="section" id="_github_actions">
+  <h2>GitHub Actions</h2>
+  <p >GitHub Actions is the official CI/CD service on GitHub. It&#8217;s free for open source project and charge by running time for private project.</p>
+
+<p >Create file <code>.github/workflows/asciibook.yml</code> in your repo with this content:</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s">Asciibook</span>
+
+<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">,</span> <span class="nv">pull_request</span><span class="pi">]</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-18.04</span>
+    <span class="na">container</span><span class="pi">:</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">asciibook/asciibook</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">build book</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">asciibook build mybook.adoc</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v1</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">build</span>
+          <span class="na">path</span><span class="pi">:</span> <span class="s">build</span></code></pre>
+</figure>
+
+<p >It means when push or pull request on this repo, create a job to run <code>asciibook build mybook.adoc</code>, and upload the <code>build</code> directory to workflow artifact, then you can download the build tarball from workflow status page.</p>
+
+<p >If you want to pubilsh HTML result to GitHub pages, add the following content under <code>jobs</code>:</p>
+
+<figure class="listing" >
+  
+  <pre class="rouge highlight"><code data-lang="yaml">  <span class="na">publish</span><span class="pi">:</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">build</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">github.event_name == 'push' &amp;&amp; github.ref == 'refs/heads/master'</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-18.04</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/download-artifact@v1</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">build</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Publish to Github Pages</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">cd build/html</span>
+          <span class="s">touch .nojekyll</span>
+          <span class="s">git init</span>
+          <span class="s">git config user.name "${GITHUB_ACTOR}"</span>
+          <span class="s">git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"</span>
+          <span class="s">git add .</span>
+          <span class="s">git commit -m 'asciibook build'</span>
+          <span class="s">git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages</span>
+          <span class="s">rm -fr .git</span>
+          <span class="s">cd ../..</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{secrets.GITHUB_TOKEN}}</span></code></pre>
+</figure>
+
+<p >It means when push to master branch, create a job to push HTML result to <code>gh-pages</code> branch.</p>
+
+<p >GitHub pages needs to be triggered manually in first time, go to settings page of project, select source from gh-pages branch, and select a theme to trigger publish.</p>
+
+<figure class="image" >
+  
+    <img src="images/github-pages.png"
+         alt="GitHub Pages"
+         
+          />
+  
+  
+</figure>
+
+<p >Then push something to master branch to trigger GitHub Actions build, your pages will be publish later.</p>
+
+<div class="admonition admonition-note" >
+  <div class="admonition-icon">
+    <b>NOTE</b>
+  </div>
+  <div class="admonition-content">
+    
+    <p >This book is a live sample for GitHub Actions with Asciibook, checkout source code for details: <a class="link" href="https://github.com/asciibook/docs"
+     
+      >https://github.com/asciibook/docs</a> .</p>
+
+  </div>
+</div>
+
+</section>
+
+</section>
+
+        </div>
+      </div>
+      <div class="paginator">
+        <a href="_style.html" class="paginator-prev ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"/></svg>
+        </a>
+        <a href="_plugin.html" class="paginator-next ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z"/></svg>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
