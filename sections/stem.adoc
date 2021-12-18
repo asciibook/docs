@@ -1,0 +1,10 @@
+== Equations and Formulas (STEM)
+
+Add the following attribute to the head of the document to enable STEM support:
+
+[source,asciidoc]
+----
+:stem:
+----
+
+More info: https://docs.asciidoctor.org/asciidoc/latest/stem/

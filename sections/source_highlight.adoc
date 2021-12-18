@@ -1,0 +1,10 @@
+== Source Highlight
+
+Asciibook supports rouge as the source highlighter.
+
+Add the following attribute to the head of the document to enable code highlight:
+
+[source,asciidoc]
+----
+:source-highlighter: rouge
+----

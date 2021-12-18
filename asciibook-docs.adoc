@@ -12,6 +12,10 @@ include::sections/installation.adoc[]
 
 include::sections/build.adoc[]
 
+include::sections/source_highlight.adoc[]
+
+include::sections/stem.adoc[]
+
 include::sections/style.adoc[]
 
 include::sections/automation.adoc[]
