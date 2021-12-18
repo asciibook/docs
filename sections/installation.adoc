@@ -17,7 +17,7 @@ By default, docker pull the latest image. You can also specify the mirror versio
 
 [source, console]
 ----
-$ docker pull asciibook/asciibook:0.0.2
+$ docker pull asciibook/asciibook:TAG
 ----
 
 Visit https://hub.docker.com/r/asciibook/asciibook for more infomation about available versions.
@@ -39,7 +39,6 @@ Check the current Asciibook version:
 [source, console]
 ----
 $ asciibook --version
-asciibook 0.0.2
 ----
 
 If you see version information, then Asciibook is installed.
