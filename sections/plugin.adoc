@@ -40,6 +40,13 @@ First, install Ruby gem and Java runtime(require by ditaa) in container:
 /asciibook# gem install asciidoctor-diagram
 ----
 
+[NOTE]
+====
+For difference diagram types need to install different dependencies, check the documentation for details:
+
+https://docs.asciidoctor.org/diagram-extension/latest/#specifying-diagram-generator-paths
+====
+
 Then add config in `asciibook.yml`:
 
 [source,yaml]
