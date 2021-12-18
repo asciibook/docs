@@ -1,0 +1,37 @@
+== Build Docker Image
+
+Sometimes the default image of asciibook cannot meet the needs, such as adding plugins, modifying fonts, or introducing other processing tools.
+
+[NOTE]
+====
+Building Docker image requires Docker knowledge. This is beyond the scope of this tutorial, please go to the official Docker documentation to view the relevant content.
+
+https://docs.docker.com/
+====
+
+For example, in the <<Plugin>> chapter we added the asciidoctor-diagram plugin. We can use the following `Dockerfile` to package its dependencies into an image:
+
+[source,dockerfile]
+----
+# Replace TAG as you need, see https://hub.docker.com/r/asciibook/asciibook
+FROM asciibook/asciibook:TAG
+
+RUN apt-get update && \
+  apt-get install default-jre-headless && \
+  gem install asciidoctor-diagram
+----
+
+Build docker image:
+
+[source,console]
+----
+$ docker build . -t asciibook:custom
+----
+
+Then use the custom image to build asciibook:
+
+[source,console]
+----
+$ docker run -it -v $(pwd):/asciibook asciibook/asciibook:custom bash
+/asciibook # asciibook build
+----

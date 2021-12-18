@@ -28,7 +28,7 @@ Using plugin will actually execute the Ruby code in the plugin, which can extend
 Make sure to only use asciibook to process trusted documents, and always build documents in a docker container.
 ====
 
-=== Example 1: asciidoctor-diagram
+=== Example 1: Ruby Gem
 
 we can add `asciidoctor-diagram` to support diagram.
 
@@ -36,8 +36,8 @@ First, install Ruby gem and Java runtime(require by ditaa) in container:
 
 [source,console]
 ----
-# apt-get update && apt-get install default-jre-headless
-# gem install asciidoctor-diagram
+/asciibook# apt-get update && apt-get install default-jre-headless
+/asciibook# gem install asciidoctor-diagram
 ----
 
 Then add config in `asciibook.yml`:
@@ -77,7 +77,7 @@ Build asciibook:
 
 [source,console]
 ----
-# asciibook build
+/asciibook# asciibook build
 ----
 
 Ditaa source will generate a image.
@@ -92,7 +92,7 @@ First, install ruby gem:
 
 [source,console]
 ----
-# gem install asciidoctor-plantuml
+/asciibook# gem install asciidoctor-plantuml
 ----
 
 Add this content to file `plugins/plantuml.rb`:
@@ -119,4 +119,4 @@ Now asciibook will generate plantuml by plantuml.com .
 
 === Next Step
 
-It should be noted that the dependencies installed in the container will disappear after exiting. To persist dependencies, you need to build your own image.
+It should be noted that the dependencies installed in the container will disappear after exiting. To persist dependencies, you need to <<Build Docker Image>>.
