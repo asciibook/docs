@@ -1,0 +1,122 @@
+== Plugin
+
+Asciibook has a plugin mechanism to extend its functions. You can modify asciidoc parsing, add macro processing, or use third-party themes through plugins.
+
+Add the plugin by command line:
+
+[source,console]
+----
+asciibook build --plugin PLUGIN1,PLUGIN2,PLUGIN3
+----
+
+or in `asciibook.yml`:
+
+[source,yaml]
+----
+plugins:
+  - PLUGIN1
+  - PLUGIN2
+  - PLUGIN3
+----
+
+Plugin is Ruby Gem or Ruby script. For Ruby gem, use gem name as plugin value. For script file, use file path as plugin value.
+
+[WARNING]
+====
+Using plugin will actually execute the Ruby code in the plugin, which can extend any function of asciibook, but it may also cause security risks. This includes deleting documents or uploading sensitive information to third-party websites.
+
+Make sure to only use asciibook to process trusted documents, and always build documents in a docker container.
+====
+
+=== Example 1: asciidoctor-diagram
+
+we can add `asciidoctor-diagram` to support diagram.
+
+First, install Ruby gem and Java runtime(require by ditaa) in container:
+
+[source,console]
+----
+# apt-get update && apt-get install default-jre-headless
+# gem install asciidoctor-diagram
+----
+
+Then add config in `asciibook.yml`:
+
+[source,yaml]
+----
+plugins:
+  - asciidoctor-diagram
+----
+
+Now we can use ditaa in asciidoc:
+
+[source,console]
+----
+[ditaa]
+....
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |   diagram   |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /---------------\
+ |        | --+ Asciidoctor +--> |               |
+ |  Text  |   +-------------+    |   Beautiful   |
+ |Document|   |   !magic!   |    |    Output     |
+ |     {d}|   |             |    |               |
+ +---+----+   +-------------+    \---------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+....
+----
+
+Build asciibook:
+
+[source,console]
+----
+# asciibook build
+----
+
+Ditaa source will generate a image.
+
+=== Example 2: Ruby Script
+
+If Ruby gem needs config, we can add a ruby script as plugin.
+
+For example, `asciidoctor-plantuml` is a plugin to use external server as plantuml generator.
+
+First, install ruby gem:
+
+[source,console]
+----
+# gem install asciidoctor-plantuml
+----
+
+Add this content to file `plugins/plantuml.rb`:
+
+[source,ruby]
+----
+require "asciidoctor-plantuml"
+
+Asciidoctor::PlantUml.configure do |conf|
+  conf.url = "https://www.plantuml.com/plantuml"
+  conf.encoding = 'deflate'
+end
+----
+
+Then add this file as plugin in `asciibook.yml`:
+
+[source,yml]
+----
+plugins:
+  - ./plugins/plantuml.rb
+----
+
+Now asciibook will generate plantuml by plantuml.com .
+
+=== Next Step
+
+It should be noted that the dependencies installed in the container will disappear after exiting. To persist dependencies, you need to build your own image.

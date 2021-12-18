@@ -15,3 +15,5 @@ include::sections/build.adoc[]
 include::sections/style.adoc[]
 
 include::sections/automation.adoc[]
+
+include::sections/plugin.adoc[]
